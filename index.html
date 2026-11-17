@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: 'Roboto', "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* 全体のカードコンテナ */
+    .terms-wrapper {
+      width: 100%;
+      max-width: 400px;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    /* 利用規約の文章ボックス（MUIのOutlinedカード風） */
+    .terms-box {
+      border: 1px solid rgba(0, 0, 0, 0.23);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 16px;
+      background-color: #fafafa;
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 14px;
+      line-height: 1.6;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .terms-box-title {
+      font-weight: 500;
+      font-size: 15px;
+      margin: 0 0 8px 0;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .terms-box p {
+      margin: 0;
+    }
+
+    /* チェックボックスとテキストのラッパー */
+    .mui-checkbox-container {
+      display: inline-flex;
+      align-items: center;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #000000;
+    }
+
+    /* チェックボックス本体のみクリック可能にする */
+    .mui-checkbox-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      margin-right: 4px;
+      margin-left: -9px; /* ボックスの左端と視覚的に揃えるための調整 */
+    }
+
+    .mui-checkbox-wrapper:hover {
+      background-color: rgba(25, 118, 210, 0.08);
+    }
+
+    /* デフォルトのinputを隠す */
+    .mui-checkbox-input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      z-index: 1;
+    }
+
+    /* カスタムチェックボックスの見た目 */
+    .mui-checkbox-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      border-radius: 2px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      background-color: transparent;
+    }
+
+    /* チェック時のスタイル */
+    .mui-checkbox-input:checked + .mui-checkbox-box {
+      background-color: #1976d2;
+      border-color: #1976d2;
+    }
+
+    /* チェックマーク */
+    .mui-checkbox-box::after {
+      content: "";
+      display: none;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      margin-bottom: 2px;
+    }
+
+    .mui-checkbox-input:checked + .mui-checkbox-box::after {
+      display: block;
+    }
+
+    /* 通常の黒文字部分 */
+    .text-visible {
+      color: #000000;
+      cursor: text;
+    }
+
+    /* 背景と同じ白色の文字部分 */
+    .text-hidden {
+      color: #ffffff;
+      cursor: text;
+    }
+
+    /* 「しません。」をドラッグして文字選択した時のスタイル */
+    .text-hidden::selection {
+      color: #000000;
+      background-color: #b3d4fc;
+    }
+    .text-hidden::-moz-selection {
+      color: #000000;
+      background-color: #b3d4fc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="terms-wrapper">
+    <!-- 利用規約の文章ボックス -->
+    <div class="terms-box">
+      <div class="terms-box-title">利用規約</div>
+      <p>礼儀正しくすること</p>
+    </div>
+
+    <!-- チェックボックスと同意テキスト -->
+    <div class="mui-checkbox-container">
+      <label class="mui-checkbox-wrapper">
+        <input type="checkbox" class="mui-checkbox-input">
+        <span class="mui-checkbox-box"></span>
+      </label>
+      <span class="text-visible">利用規約に同意</span><span class="text-hidden">しません。</span>
+    </div>
+  </div>
+
+</body>
+</html>
