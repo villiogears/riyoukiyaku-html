@@ -69,7 +69,7 @@
       cursor: pointer;
       transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       margin-right: 4px;
-      margin-left: -9px; /* ボックスの左端と視覚的に揃えるための調整 */
+      margin-left: -9px;
     }
 
     .mui-checkbox-wrapper:hover {
@@ -158,12 +158,23 @@
     <!-- チェックボックスと同意テキスト -->
     <div class="mui-checkbox-container">
       <label class="mui-checkbox-wrapper">
-        <input type="checkbox" class="mui-checkbox-input">
+        <input type="checkbox" id="terms-checkbox" class="mui-checkbox-input">
         <span class="mui-checkbox-box"></span>
       </label>
       <span class="text-visible">利用規約に同意</span><span class="text-hidden">しません。</span>
     </div>
   </div>
+
+  <script>
+    const checkbox = document.getElementById('terms-checkbox');
+
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        alert('利用規約に同意してください');
+        this.checked = false;
+      }
+    });
+  </script>
 
 </body>
 </html>
